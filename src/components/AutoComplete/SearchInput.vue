@@ -2,6 +2,8 @@
 import { ref, computed } from "vue";
 
 const searchInput = ref();
+const filteredData = ref();
+
 const data = [
 	"Hasan",
 	"Hüseyin",
@@ -14,47 +16,44 @@ const data = [
 	"Adıyaman",
 	"Trabzon",
 ];
-const filteredData = ref();
+
 const searchData = computed(() => {
 	filteredData.value = data.filter((dataItem) => {
-		return dataItem.toLowerCase().startsWith(searchInput.value.toLowerCase());
+		dataItem = dataItem.toLowerCase();
+		return dataItem.startsWith(searchInput.value.toLowerCase());
 	});
 });
-const searchComplete = (item) => {
-	searchInput.value = item;
+
+const searchComplete = (dataItem) => {
+	searchInput.value = dataItem;
 };
+
 </script>
+
 <template>
-    <div class="search">
-	<input
-		class="form__input"
-		type="text"
-		v-model="searchInput"
-		@input="searchData"
-	/>
-</div>
-<div class="filter__data">
-	<ul v-if="searchInput">
-		<li
-			class="search__data"
-			v-for="dataItem in filteredData"
-			@click="searchComplete(dataItem)"
-		>
-			{{ dataItem }}
-		</li>
-	</ul>
-</div>
+	<div class="search">
+		<input class="form__input" type="text" v-model="searchInput" @input="searchData" />
+	</div>
+	<div class="filter__data">
+		<ul v-if="searchInput">
+			<li class="search__data" v-for="dataItem in filteredData" @click="searchComplete(dataItem)">
+				{{ dataItem }}
+			</li>
+		</ul>
+	</div>
 </template>
 
 <style scoped>
-.search{
-    display:flex;
-    justify-content: center;
+.search {
+	display: flex;
+	justify-content: center;
 }
-.filter__data{
-    display:flex;
-    justify-content: center;
+
+.filter__data {
+	display: flex;
+	justify-content: center;
 }
+
 .form__input {
 	color: #333;
 	font-size: 1.2rem;
