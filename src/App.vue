@@ -7,19 +7,26 @@ const cookieContext = {
     cookieDescription: "Description Here",
     cookiePolicy: "Policy Here",
     cookieSettings: "Settings Here",
-    acceptButton:{
-        text:"Kabul Et",
-        textColor: "white",
-        bgColor: "orange",
-        bgHover: "" 
-
-    },
-    declineButton:{
-        text:"Reddet",
-        textColor: "white",
-        bgColor: "coral",
-        bgHover: ""
-    }
+    // acceptButton:{
+    //     //text:"Kabul Et",
+    //     //textColor: "white",
+    //    // bgColor: "green",
+    //     //bgHover: "" 
+    // },
+		acceptButtonText: "Accept",
+		acceptButtonColor: "white",
+		acceptButtonBGC: "green",
+		acceptButtonHover: "",
+		declineButtonText: "Decline",
+		declineButtonColor: "white",
+		declineButtonBGC: "green",
+		acceptButtonHover: "",
+    // declineButton:{
+    //     text:"Reddet",
+    //     textColor: "white",
+    //     bgColor: "coral",
+    //     bgHover: ""
+    // }
 }
 
 
@@ -32,5 +39,7 @@ const cookieContext = {
 </template>
 
 <style scoped>
-
+a{
+	background-color: rgb(255, 128, 0);
+}
 </style>
