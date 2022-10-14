@@ -31,49 +31,68 @@ const searchComplete = (dataItem) => {
 </script>
 
 <template>
-	<div class="search">
-		<input class="form__input" type="text" v-model="searchInput" @input="searchData" />
+	<div class="wrapper">
+		<div class="search__input">
+			<input class="form__input" type="text" v-model="searchInput" @input="searchData" />
+			<div class="filter__data">
+				<ul v-if="searchInput">
+					<li class="search__data" v-for="dataItem in filteredData" @click="searchComplete(dataItem)">
+						<img class="search__icon" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="">{{ dataItem }}
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	<div class="filter__data">
-		<ul v-if="searchInput">
-			<li class="search__data" v-for="dataItem in filteredData" @click="searchComplete(dataItem)">
-				{{ dataItem }}
-			</li>
-		</ul>
-	</div>
+
+
 </template>
 
 <style scoped>
-.search {
-	display: flex;
-	justify-content: center;
-}
-
-.filter__data {
-	display: flex;
-	justify-content: center;
+.wrapper {
+	max-width: 450px;
+	margin: 150px auto;
 }
 
 .form__input {
-	color: #333;
-	font-size: 1.2rem;
-	padding: 10px;
-	border-radius: 0.2rem;
-	background-color: rgb(255, 255, 255);
+	height: 55px;
+	width: 100%;
+	outline: none;
 	border: none;
+	border-radius: 5px;
+	padding: 0 60px 0 20px;
+	font-size: 18px;
+}
 
-	display: block;
-	border: 1px solid black;
-	transition: all 0.3s;
+.form__input:focus {
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.search__input {
+	border-radius: 5px;
+	position: relative;
+	box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+}
+
+.search__icon {
+	width: 15px;
+	margin-right: 10px;
 }
 
 .search__data {
 	list-style: none;
-	margin: 10px;
-	padding: 10px;
-	background-color: #fff;
-	border: 1px solid black;
-	border-radius: 5px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	padding: 2px;
+	width: 100%;
+	cursor: default;
+	cursor: pointer;
+	padding-left: 20px;
+}
+
+.search__data:hover {
+	background-color: rgba(128, 128, 128, 0.269);
+}
+
+.filter__data li{
+	display: flex;
+	align-items: center;
 }
 </style>
