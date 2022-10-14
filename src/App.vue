@@ -3,24 +3,26 @@ import CookieModal from './components/Cookies/CookieModal.vue';
 
 const cookieContext = {
     rejectButtonActive: true,
+		//cookieModalBGC:"black",
     cookieHeader: "header",
+		cookieHeaderColor: "white",
     cookieDescription: "Description Here",
+		cookieDescriptionColor: "white",
     cookiePolicy: "Policy Here",
+		cookiePolicyColor: "green",
     cookieSettings: "Settings Here",
     // acceptButton:{
-    //     //text:"Kabul Et",
-    //     //textColor: "white",
+    //    //text:"Kabul Et",
+    //    //textColor: "white",
     //    // bgColor: "green",
-    //     //bgHover: "" 
+    //     
     // },
 		acceptButtonText: "Accept",
 		acceptButtonColor: "white",
 		acceptButtonBGC: "green",
-		acceptButtonHover: "",
 		declineButtonText: "Decline",
 		declineButtonColor: "white",
 		declineButtonBGC: "green",
-		acceptButtonHover: "",
     // declineButton:{
     //     text:"Reddet",
     //     textColor: "white",
@@ -39,7 +41,5 @@ const cookieContext = {
 </template>
 
 <style scoped>
-a{
-	background-color: rgb(255, 128, 0);
-}
+
 </style>
