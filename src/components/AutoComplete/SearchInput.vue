@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 
 const searchInput = ref();
 const filteredData = ref();
-
+const modalToggle = ref(false);
 const data = [
 	"Hasan",
 	"Hüseyin",
@@ -26,25 +26,37 @@ const searchData = computed(() => {
 
 const searchComplete = (dataItem) => {
 	searchInput.value = dataItem;
+	modalToggle.value = false;
 };
-
 </script>
 
 <template>
 	<div class="wrapper">
 		<div class="search__input">
-			<input class="form__input" type="text" v-model="searchInput" @input="searchData" />
+			<input
+				class="form__input"
+				type="text"
+				v-model="searchInput"
+				@input="searchData"
+				@focus="modalToggle = true"
+			/>
 			<div class="filter__data">
-				<ul v-if="searchInput">
-					<li class="search__data" v-for="dataItem in filteredData" @click="searchComplete(dataItem)">
-						<img class="search__icon" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="">{{ dataItem }}
+				<ul v-if="searchInput && modalToggle">
+					<li
+						class="search__data"
+						v-for="dataItem in filteredData"
+						@click="searchComplete(dataItem)"
+					>
+						<img
+							class="search__icon"
+							src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+							alt=""
+						/>{{ dataItem }}
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
-
 </template>
 
 <style scoped>
@@ -91,7 +103,7 @@ const searchComplete = (dataItem) => {
 	background-color: rgba(128, 128, 128, 0.269);
 }
 
-.filter__data li{
+.filter__data li {
 	display: flex;
 	align-items: center;
 }
