@@ -82,12 +82,18 @@ const props = defineProps({
 // const declineBGC = props.declineButton.bgColor;
 
 
-const showCookie = ref(JSON.parse(localStorage.getItem("cookieCheck")));
-
+const cookie = ref(JSON.parse(localStorage.getItem("cookieCheck")));
+const status = ref(JSON.parse(localStorage.getItem("status")));
 
 onMounted(() => {
-	checkCookie(showCookie);
-})
+	checkCookie(cookie);
+	setStatus(cookie, status);
+});
+
+function setStatus(cookie, status) {
+	console.log(cookie.value);
+	console.log(status.value);
+}
 
 function checkCookie(localCheck) {
 	if (localCheck.value != true) {
@@ -98,19 +104,21 @@ function checkCookie(localCheck) {
 
 function acceptCookie() {
 	localStorage.setItem("cookieCheck", true);
-	showCookie.value = localStorage.getItem("cookieCheck");
+	cookie.value = localStorage.getItem("cookieCheck");
 	return;
 }
 
 function declineCookie() {
-	localStorage.setItem("cookieCheck", "refused");
+	localStorage.setItem("cookieCheck", true);
+	cookie.value = localStorage.getItem("cookieCheck");
+	localStorage.setItem("status", "declined")
 }
 
 </script>
 
 <template>
 
-	<template v-if="!showCookie">
+	<template v-if="!cookie">
 		<div class="cookie" :style="{backgroundColor: props.cookieModalBGC}">
 			<div class="cookie__description">
 				<div class="cookie__header">
@@ -133,13 +141,13 @@ function declineCookie() {
 			</div>
 		</div>
 	</template>
-
 </template>
 
 <style lang="scss" scoped>
 .cookie {
-	@apply  absolute bottom-0 flex w-full text-gray-50 ;
+	@apply absolute bottom-0 flex w-full text-gray-50 flex-col md:flex-row;
 	box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
 	&__description {
 
 		@apply w-full flex justify-center flex-col p-3;
@@ -162,7 +170,7 @@ function declineCookie() {
 	}
 
 	&__buttons {
-		@apply flex justify-center items-center gap-6;
+		@apply flex justify-center items-center gap-6 m-3;
 
 		.accept-cookie {
 			@apply p-3 rounded-[3px] w-32;
@@ -188,6 +196,9 @@ function declineCookie() {
 			@apply brightness-75;
 		}
 	}
+
+	
+
 
 }
 </style>
