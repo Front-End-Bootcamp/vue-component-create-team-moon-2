@@ -1,5 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import { getLocalCookie, saveLocalCookie } from "../../service/local";
+
+const cookie = ref(null);
 
 const props = defineProps({
 	rejectButtonActive: {
@@ -77,41 +80,27 @@ const props = defineProps({
 
 });
 
-// console.log(props.acceptButton);
-// const acceptBGC = props.acceptButton.bgColor;
-// const declineBGC = props.declineButton.bgColor;
-
-
-const cookie = ref(JSON.parse(localStorage.getItem("cookieCheck")));
-const status = ref(JSON.parse(localStorage.getItem("status")));
-
 onMounted(() => {
-	checkCookie(cookie);
-	setStatus(cookie, status);
+	const cookieData = getLocalCookie() || false;
+	cookie.value = cookieData;
 });
 
-function setStatus(cookie, status) {
-	console.log(cookie.value);
-	console.log(status.value);
-}
-
 function checkCookie(localCheck) {
-	if (localCheck.value != true) {
-		localStorage.setItem("cookieCheck", false);
-	}
+	if (localCheck === true) return;
+	saveLocalCookie(false);
 	return;
 }
 
 function acceptCookie() {
-	localStorage.setItem("cookieCheck", true);
-	cookie.value = localStorage.getItem("cookieCheck");
+	saveLocalCookie(true);
+	cookie.value = true;
 	return;
 }
 
 function declineCookie() {
-	localStorage.setItem("cookieCheck", true);
-	cookie.value = localStorage.getItem("cookieCheck");
-	localStorage.setItem("status", "declined")
+	saveLocalCookie(false);
+	cookie.value = true;
+	console.log(cookie.value);
 }
 
 </script>
@@ -197,7 +186,7 @@ function declineCookie() {
 		}
 	}
 
-	
+
 
 
 }

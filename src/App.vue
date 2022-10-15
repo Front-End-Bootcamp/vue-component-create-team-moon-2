@@ -14,8 +14,7 @@ const cookieContext = {
     // acceptButton:{
     //    //text:"Kabul Et",
     //    //textColor: "white",
-    //    // bgColor: "green",
-    //     
+    //    //bgColor: "green",
     // },
 		// acceptButtonText: "Accept",
 		// acceptButtonColor: "white",
