@@ -38,7 +38,7 @@ const searchComplete = (dataItem) => {
 				type="text"
 				v-model="searchInput"
 				@input="searchData"
-				@focus="modalToggle = true"
+				@keypress="modalToggle = true"
 			/>
 			<div class="filter__data">
 				<ul v-if="searchInput && modalToggle">
