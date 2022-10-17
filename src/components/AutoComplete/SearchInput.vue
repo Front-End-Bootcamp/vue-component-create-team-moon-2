@@ -20,7 +20,7 @@ const data = [
 const searchData = computed(() => {
 	filteredData.value = data.filter((dataItem) => {
 		dataItem = dataItem.toLowerCase();
-		return dataItem.startsWith(searchInput.value.toLowerCase());
+		return dataItem.includes(searchInput.value.toLowerCase());
 	});
 });
 
@@ -39,6 +39,7 @@ const searchComplete = (dataItem) => {
 				v-model="searchInput"
 				@input="searchData"
 				@keypress="modalToggle = true"
+				@keyup.delete="modalToggle = true"
 			/>
 			<div class="filter__data">
 				<ul v-if="searchInput && modalToggle">
