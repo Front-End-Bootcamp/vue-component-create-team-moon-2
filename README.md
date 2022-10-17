@@ -18,6 +18,7 @@ This is a cookie modal project and it is customizable. Accept or Decline is save
 ![sending prop](./public/sending-prop.png)
 
 - Fully customazible cookie modal
+
 ![cookie modal](./public/cookie-modal.png)
 
 ## Customizable Options
