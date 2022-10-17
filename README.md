@@ -4,9 +4,21 @@ This is a cookie modal project and it is customizable. Accept or Decline is save
 
 ![gif](./public/page.gif)
 
-## Firs install all dependencies
+## First install all dependencies
 
 - npm install
+
+## Instructions
+- Props
+
+![importing and commands](./public/import-commands.png)
+
+- Sending component and prop
+
+![sending prop](./public/sending-prop.png)
+
+- Fully customazible cookie modal
+![cookie modal](./public/cookie-modal.png)
 
 ## Customizable Options
 

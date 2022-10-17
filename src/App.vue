@@ -3,32 +3,34 @@ import CookieModal from './components/Cookies/CookieModal.vue';
 
 const cookieContext = {
 	rejectButtonActive: true,
-	//cookieModalBGC:"black",
-	// cookieHeader: "header",
-	// cookieHeaderColor: "yellow",
-	// cookieDescription: "Description Here",
-	// cookieDescriptionColor: "yellow",
-	// cookiePolicy: "Policy Here",
-	// cookiePolicyColor: "green",
-	// cookieSettings: "Settings Here",
+	cookieModalBGC: "black",
+	cookieHeader: "Header Text Here",
+	cookieHeaderColor: "white",
+	cookieDescription: "Description Here",
+	cookieDescriptionColor: "white",
+	cookiePolicy: "Policy Here",
+	cookiePolicyColor: "green",
+	cookieSettings: "SettingsText",
+	acceptButtonText: "AcceptText",
+	acceptButtonColor: "white",
+	acceptButtonBGC: "green",
+	declineButtonText: "DeclineText",
+	declineButtonColor: "white",
+	declineButtonBGC: "green",
+}
+
 	// acceptButton:{
 	//    //text:"Kabul Et",
 	//    //textColor: "white",
 	//    //bgColor: "green",
 	// },
-	// acceptButtonText: "Accept",
-	// acceptButtonColor: "white",
-	// acceptButtonBGC: "green",
-	// declineButtonText: "Decline",
-	// declineButtonColor: "white",
-	// declineButtonBGC: "green",
 	// declineButton:{
 	//     text:"Reddet",
 	//     textColor: "white",
 	//     bgColor: "coral",
 	//     bgHover: ""
 	// }
-}
+
 
 
 </script>
