@@ -17,10 +17,18 @@ const props = defineProps({
 		type: String,
 		default: "Daha iyi bir deneyim için izninizi istiyoruz.",
 	},
+	cookieHeaderColor: {
+		type: String,
+		default: "white"
+	},
 	cookieDescription: {
 		type: String,
 		default: `Tanımlama bilgilerini; sitemizin doğru şekilde çalışmasını sağlamak, içerikleri ve reklamları kişiselleştirmek, sosyal medya özellikleri sunmak ve site
                     trafiğimizi analiz etmek için kullanıyoruz. Aynı zamanda site kullanımınızla ilgili bilgileri; sosyal medya, reklamcılık ve analiz ortaklarımızla paylaşıyoruz.`,
+	},
+	cookieDescriptionColor: {
+		type: String,
+		default: "white"
 	},
 	cookiePolicy: {
 		type: String,
@@ -111,10 +119,10 @@ function declineCookie() {
 		<div class="cookie" :style="{backgroundColor: props.cookieModalBGC}">
 			<div class="cookie__description">
 				<div class="cookie__header">
-					<p>{{props.cookieHeader}}</p>
+					<p :style="{color: props.cookieHeaderColor}">{{props.cookieHeader}}</p>
 				</div>
 				<div class="cookie__text">
-					<p>{{props.cookieDescription}}
+					<p :style="{color: props.cookieDescriptionColor}">{{props.cookieDescription}}
 						<a class="policy" :style="{color: props.cookiePolicyColor}" href="#">{{props.cookiePolicy}}</a>
 					</p>
 				</div>

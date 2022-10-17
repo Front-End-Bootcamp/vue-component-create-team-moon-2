@@ -1,8 +1,30 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8837447&assignment_repo_type=AssignmentRepo)
-# Vue 3 + Vite
+# Cookie Modal Project
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a cookie modal project and it is customizable. Accept or Decline is saved into local storage. You can see the full list of configurations below.
 
-## Recommended IDE Setup
+![gif](./public/page.gif)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## Firs install all dependencies
+
+- npm install
+
+## Customizable Options
+
+| Props                  | Type    | Description                                            | Default Value               |
+|------------------------|---------|--------------------------------------------------------|-----------------------------|
+| rejectButtonActive     | boolean | You can customize the reject button active or not.     | true                        |
+| cookieModalBGC         | string  | You can customize the background color of the modal.   | "rgb(38,38,38)"             |
+| cookieHeader           | string  | You can customize the Header text.                     | "Daha iyi bir...."          |
+| cookieHeaderColor      | string  | You can customize the Header text color.               | "white"                     |
+| cookieDescription      | string  | You can customize the description text.                | "Tanımlama bilgilerini...." |
+| cookieDescriptionColor | string  | You can customize the description text color.          | "white"                     |
+| cookiePolicy           | string  | You can customize the cookie policy text.              | "Çerez Politikası"          |
+| cookiePolicyColor      | string  | You can customize the cookie policy text color.        | "orange"                    |
+| cookieSettings         | string  | You can customize the cookie settings text.            | "Çerez Ayarları"            |
+| acceptButtonText       | string  | You can customize the accept button text.              | "Kabul Et"                  |
+| acceptButtonColor      | string  | You can customize the accept button text color.        | "white"                     |
+| acceptButtonBGC        | string  | You can customize the accept button background color.  | "rgb(255,128,0)"            |
+| declineButtonText      | string  | You can customize the decline button text.             | "Reddet"                    |
+| declineButtonColor     | string  | You can customize the decline button text color.       | "white"                     |
+| declineButtonBGC       | string  | You can customize the decline button background color. | "rgb(255,128,0)"            |
+
