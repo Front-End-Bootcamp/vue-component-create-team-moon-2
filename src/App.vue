@@ -1,5 +1,6 @@
 <script setup>
 import CookieModal from './components/Cookies/CookieModal.vue';
+import SearchInput from './components/AutoComplete/SearchInput.vue';
 
 const cookieContext = {
 	rejectButtonActive: true,
@@ -36,7 +37,7 @@ const cookieContext = {
 </script>
 
 <template>
-
+	<SearchInput></SearchInput>
 	<CookieModal v-bind="{...cookieContext}"></CookieModal>
 
 </template>
