@@ -1,3 +1,9 @@
+# Autocomplete Search Project
+
+This is a autocomplete search bar project. Data is given by the user.
+
+![search.gif](./public//search-input.gif)
+
 # Cookie Modal Project
 
 This is a cookie modal project and it is customizable. Accept or Decline is saved into local storage. You can see the full list of configurations below.

@@ -4,12 +4,15 @@ import { ref, computed } from "vue";
 const searchInput = ref();
 const filteredData = ref();
 const modalToggle = ref(false);
+
 const data = [
 	"Hasan",
 	"Hüseyin",
 	"Ali",
 	"Veli",
 	"Fatih",
+	"Fatih Tarım",
+	"Fatih Tufan",
 	"Alihan",
 	"Ankara",
 	"Rize",
@@ -20,7 +23,7 @@ const data = [
 const searchData = computed(() => {
 	filteredData.value = data.filter((dataItem) => {
 		dataItem = dataItem.toLowerCase();
-		return dataItem.includes(searchInput.value.toLowerCase());
+		return dataItem.startsWith(searchInput.value.toLowerCase());
 	});
 });
 
