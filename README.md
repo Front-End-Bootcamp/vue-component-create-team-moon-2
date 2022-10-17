@@ -8,7 +8,11 @@ This is a autocomplete search bar project. Data is given by the user.
 
 This is a cookie modal project and it is customizable. Accept or Decline is saved into local storage. You can see the full list of configurations below.
 
-![gif](./public/page.gif)
+This is the default settings for modal.
+![gif](./public/cookie.gif)
+
+You can customize the default settings.
+![gif](./public/cookie-customize.gif)
 
 ## First install all dependencies
 
