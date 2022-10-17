@@ -4,6 +4,26 @@ This is a autocomplete search bar project. Data is given by the user.
 
 ![search.gif](./public//search-input.gif)
 
+## Datas
+You can customize the data.
+
+```bash
+const data = [
+	"Hasan",
+	"Hüseyin",
+	"Ali",
+	"Veli",
+	"Fatih",
+	"Fatih Tarım",
+	"Fatih Tufan",
+	"Alihan",
+	"Ankara",
+	"Rize",
+	"Adıyaman",
+	"Trabzon",
+];
+```
+
 # Cookie Modal Project
 
 This is a cookie modal project and it is customizable. Accept or Decline is saved into local storage. You can see the full list of configurations below.
@@ -21,7 +41,29 @@ You can customize the default settings.
 ## Instructions
 - Props
 
-![importing and commands](./public/import-commands.png)
+<!-- ![importing and commands](./public/import-commands.png) -->
+
+```bash
+import CookieModal from './components/Cookies/CookieModal.vue';
+
+const cookieContext = {
+	rejectButtonActive: true,
+	cookieModalBGC: "black",
+	cookieHeader: "Header Text Here",
+	cookieHeaderColor: "white",
+	cookieDescription: "Description Here",
+	cookieDescriptionColor: "white",
+	cookiePolicy: "Policy Here",
+	cookiePolicyColor: "green",
+	cookieSettings: "SettingsText",
+	acceptButtonText: "AcceptText",
+	acceptButtonColor: "white",
+	acceptButtonBGC: "green",
+	declineButtonText: "DeclineText",
+	declineButtonColor: "white",
+	declineButtonBGC: "green",
+}
+```
 
 - Sending component and prop
 
@@ -29,7 +71,7 @@ You can customize the default settings.
 
 - Fully customazible cookie modal
 
-![cookie modal](./public/cookie-modal.png)
+![cookie modal](./public/cookie__modal.png)
 
 ## Customizable Options
 
