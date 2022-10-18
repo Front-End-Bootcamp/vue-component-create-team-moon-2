@@ -93,12 +93,6 @@ onMounted(() => {
 	cookie.value = cookieData;
 });
 
-function checkCookie(localCheck) {
-	if (localCheck === true) return;
-	saveLocalCookie(false);
-	return;
-}
-
 function acceptCookie() {
 	saveLocalCookie(true);
 	cookie.value = true;
