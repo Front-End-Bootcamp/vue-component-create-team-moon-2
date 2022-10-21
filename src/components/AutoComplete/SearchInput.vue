@@ -38,7 +38,7 @@ const searchComplete = (dataItem) => {
 	<div class="form">
 		<div class="search__input">
 			<input class="form__input" type="text" v-model="searchInput" @input="searchData" @keypress="modalToggle = true"
-				@keyup.delete="modalToggle = true" />
+				@keyup.delete="modalToggle = true" placeholder="Search"/>
 			<div class="filter__data">
 				<ul v-if="searchInput && modalToggle">
 					<li class="search__data" v-for="dataItem in filteredData" @click="searchComplete(dataItem)">
