@@ -1,8 +1,9 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from "vue";
 import { getLocalCookie, saveLocalCookie } from "../../service/local";
-
+import CookieSettings from "./CookieSettings.vue";
 const cookie = ref(null);
+const isOpen = ref(false);
 
 const props = defineProps({
 	rejectButtonActive: {
@@ -11,7 +12,7 @@ const props = defineProps({
 	},
 	cookieModalBGC: {
 		type: String,
-		default: "rgb(38, 38, 38)"
+		default: "rgb(38, 38, 38)",
 	},
 	cookieHeader: {
 		type: String,
@@ -19,7 +20,7 @@ const props = defineProps({
 	},
 	cookieHeaderColor: {
 		type: String,
-		default: "white"
+		default: "white",
 	},
 	cookieDescription: {
 		type: String,
@@ -28,7 +29,7 @@ const props = defineProps({
 	},
 	cookieDescriptionColor: {
 		type: String,
-		default: "white"
+		default: "white",
 	},
 	cookiePolicy: {
 		type: String,
@@ -36,7 +37,7 @@ const props = defineProps({
 	},
 	cookiePolicyColor: {
 		type: String,
-		default: "orange"
+		default: "orange",
 	},
 	cookieSettings: {
 		type: String,
@@ -53,27 +54,27 @@ const props = defineProps({
 	// },
 	acceptButtonText: {
 		type: String,
-		default: "Kabul Et"
+		default: "Kabul Et",
 	},
 	acceptButtonColor: {
 		type: String,
-		default: "white"
+		default: "white",
 	},
 	acceptButtonBGC: {
 		type: String,
-		default: "rgb(255, 128, 0)"
+		default: "rgb(255, 128, 0)",
 	},
 	declineButtonText: {
 		type: String,
-		default: "Reddet"
+		default: "Reddet",
 	},
 	declineButtonColor: {
 		type: String,
-		default: "white"
+		default: "white",
 	},
 	declineButtonBGC: {
 		type: String,
-		default: "rgb(255, 128, 0)"
+		default: "rgb(255, 128, 0)",
 	},
 	// declineButton: {
 	// 	text: {
@@ -85,7 +86,6 @@ const props = defineProps({
 	// 		default: "rgb(255 96 0 / var(--tw-bg-opacity))"
 	// 	}
 	// }
-
 });
 
 onMounted(() => {
@@ -105,30 +105,64 @@ function declineCookie() {
 	console.log(cookie.value);
 }
 
+function openSettings(){
+	isOpen.value = true;
+}
+
+function closeModalHandler(isClosed){
+ isOpen.value = isClosed.value;
+}
+
 </script>
 
 <template>
-
+	<div v-if="isOpen">
+		<CookieSettings :isOpen="isOpen" @closeModal="closeModalHandler"></CookieSettings>
+	</div>
 	<template v-if="!cookie">
-		<div class="cookie" :style="{backgroundColor: props.cookieModalBGC}">
+		<div class="cookie" :style="{ backgroundColor: props.cookieModalBGC }">
 			<div class="cookie__description">
 				<div class="cookie__header">
-					<p :style="{color: props.cookieHeaderColor}">{{props.cookieHeader}}</p>
+					<p :style="{ color: props.cookieHeaderColor }">
+						{{ props.cookieHeader }}
+					</p>
 				</div>
 				<div class="cookie__text">
-					<p :style="{color: props.cookieDescriptionColor}">{{props.cookieDescription}}
-						<a class="policy" :style="{color: props.cookiePolicyColor}" href="#">{{props.cookiePolicy}}</a>
+					<p :style="{ color: props.cookieDescriptionColor }">
+						{{ props.cookieDescription }}
+						<a
+							class="policy"
+							:style="{ color: props.cookiePolicyColor }"
+							href="#"
+							>{{ props.cookiePolicy }}</a
+						>
 					</p>
 				</div>
 			</div>
 			<div class="cookie__buttons">
-				<button @click="acceptCookie" class="accept-cookie"
-					:style="{backgroundColor: props.acceptButtonBGC, color: props.acceptButtonColor}">{{props.acceptButtonText}}</button>
+				<button
+					@click="acceptCookie"
+					class="accept-cookie"
+					:style="{
+						backgroundColor: props.acceptButtonBGC,
+						color: props.acceptButtonColor,
+					}"
+				>
+					{{ props.acceptButtonText }}
+				</button>
 				<template v-if="props.rejectButtonActive">
-					<button @click="declineCookie" class="decline-cookie"
-						:style="{backgroundColor: props.declineButtonBGC, color: props.declineButtonColor}">{{props.declineButtonText}}</button>
+					<button
+						@click="declineCookie"
+						class="decline-cookie"
+						:style="{
+							backgroundColor: props.declineButtonBGC,
+							color: props.declineButtonColor,
+						}"
+					>
+						{{ props.declineButtonText }}
+					</button>
 				</template>
-				<a class="cookie-settings" href="#">{{props.cookieSettings}}</a>
+				<a class="cookie-settings" @click="openSettings">{{props.cookieSettings}}</a>
 			</div>
 		</div>
 	</template>
@@ -140,7 +174,6 @@ function declineCookie() {
 	box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 	&__description {
-
 		@apply w-full flex justify-center flex-col p-3;
 
 		.cookie__header {
@@ -170,7 +203,6 @@ function declineCookie() {
 
 		.accept-cookie:hover {
 			@apply text-gray-300 brightness-90;
-
 		}
 
 		.decline-cookie {
@@ -180,16 +212,11 @@ function declineCookie() {
 
 		.decline-cookie:hover {
 			@apply text-gray-300 brightness-90;
-
 		}
 
 		.cookie-settings:hover {
 			@apply brightness-75;
 		}
 	}
-
-
-
-
 }
 </style>
