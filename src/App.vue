@@ -23,6 +23,8 @@ const cookieContext = {
 	cookieSettings_2: "Setting2",
 	cookieSettings_3: "Setting3",
 	cookieSettings_4: "Setting4",
+	cookiePolicyTitle: "Çerez Politikası",
+	cookiePolicyText: "Biz, Şirket Adı, olarak güvenliğinize önem veriyor ve bu Çerez Politikası ile siz sevgili ziyaretçilerimizi, web sitemizde hangi çerezleri, hangi amaçla kullandığımız ve çerez ayarlarınızı nasıl değiştireceğiniz konularında kısaca bilgilendirmeyi hedefliyoruz. ",
 	// acceptButton:{
 	//    //text:"Kabul Et",
 	//    //textColor: "white",
