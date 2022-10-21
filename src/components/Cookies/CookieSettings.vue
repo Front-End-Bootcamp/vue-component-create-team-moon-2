@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-const props = defineProps(['isOpen','title','setting1','setting2','setting3','setting4']);
+const props = defineProps(['isSettingsOpen','title','setting1','setting2','setting3','setting4']);
 const emits = defineEmits(["closeModal"]);
 
 const isModalOpen = ref(false);

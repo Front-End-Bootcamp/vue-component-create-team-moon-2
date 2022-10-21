@@ -2,8 +2,10 @@
 import { onMounted, ref } from "vue";
 import { getLocalCookie, saveLocalCookie } from "../../service/local";
 import CookieSettings from "./CookieSettings.vue";
+import CookiePolicy from "./CookiePolicy.vue";
 const cookie = ref(null);
-const isOpen = ref(false);
+const isSettingsOpen = ref(false);
+const isPolicyOpen = ref(false);
 
 const props = defineProps({
 	rejectButtonActive: {
@@ -86,23 +88,23 @@ const props = defineProps({
 	// 		default: "rgb(255 96 0 / var(--tw-bg-opacity))"
 	// 	}
 	// }
-	cookieSettingsTitle:{
+	cookieSettingsTitle: {
 		type: String,
 		default: "Çerez Ayarları",
 	},
-	cookieSettings_1:{
+	cookieSettings_1: {
 		type: String,
 		default: "Zorunlu Çerezler",
 	},
-	cookieSettings_2:{
+	cookieSettings_2: {
 		type: String,
 		default: "Performans Çerezleri",
 	},
-	cookieSettings_3:{
+	cookieSettings_3: {
 		type: String,
 		default: "Hedefleme Çerezleri",
 	},
-	cookieSettings_4:{
+	cookieSettings_4: {
 		type: String,
 		default: "İşevsellik Çerezleri",
 	},
@@ -125,30 +127,30 @@ function declineCookie() {
 	console.log(cookie.value);
 }
 
-function openSettings(){
-	isOpen.value = true;
+function openSettings() {
+	isSettingsOpen.value = true;
 }
 
-function closeModalHandler(isClosed){
- isOpen.value = isClosed.value;
+function openPolicy() {
+	isPolicyOpen.value = true;
+}
+
+function closeModalHandler(isClosed) {
+	isSettingsOpen.value = isClosed.value;
 }
 
 </script>
 
 <template>
-	<div v-if="isOpen">
-		<CookieSettings 
-		:isOpen="isOpen" 
-		@closeModal="closeModalHandler" 
-		:title="props.cookieSettingsTitle"
-		:setting1="props.cookieSettings_1"
-		:setting2="props.cookieSettings_2"
-		:setting3="props.cookieSettings_3"
-		:setting4="props.cookieSettings_4"
-		
-		>
-	</CookieSettings>
-	</div>
+	<template v-if="isSettingsOpen">
+		<CookieSettings :isSettingsOpen="isSettingsOpen" @closeModal="closeModalHandler" :title="props.cookieSettingsTitle"
+			:setting1="props.cookieSettings_1" :setting2="props.cookieSettings_2" :setting3="props.cookieSettings_3"
+			:setting4="props.cookieSettings_4">
+		</CookieSettings>
+	</template>
+	<template v-if="isPolicyOpen">
+		<CookiePolicy></CookiePolicy>
+	</template>
 	<template v-if="!cookie">
 		<div class="cookie" :style="{ backgroundColor: props.cookieModalBGC }">
 			<div class="cookie__description">
@@ -160,35 +162,24 @@ function closeModalHandler(isClosed){
 				<div class="cookie__text">
 					<p :style="{ color: props.cookieDescriptionColor }">
 						{{ props.cookieDescription }}
-						<a
-							class="policy"
-							:style="{ color: props.cookiePolicyColor }"
-							href="#"
-							>{{ props.cookiePolicy }}</a
-						>
+						<a class="policy" :style="{ color: props.cookiePolicyColor }" @click="openPolicy">{{ props.cookiePolicy
+						}}</a>
+
 					</p>
 				</div>
 			</div>
 			<div class="cookie__buttons">
-				<button
-					@click="acceptCookie"
-					class="accept-cookie"
-					:style="{
-						backgroundColor: props.acceptButtonBGC,
-						color: props.acceptButtonColor,
-					}"
-				>
+				<button @click="acceptCookie" class="accept-cookie" :style="{
+					backgroundColor: props.acceptButtonBGC,
+					color: props.acceptButtonColor,
+				}">
 					{{ props.acceptButtonText }}
 				</button>
 				<template v-if="props.rejectButtonActive">
-					<button
-						@click="declineCookie"
-						class="decline-cookie"
-						:style="{
-							backgroundColor: props.declineButtonBGC,
-							color: props.declineButtonColor,
-						}"
-					>
+					<button @click="declineCookie" class="decline-cookie" :style="{
+						backgroundColor: props.declineButtonBGC,
+						color: props.declineButtonColor,
+					}">
 						{{ props.declineButtonText }}
 					</button>
 				</template>
