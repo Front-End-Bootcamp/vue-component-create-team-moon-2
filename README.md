@@ -31,6 +31,9 @@ This is a cookie modal project and it is customizable. Accept or Decline is save
 This is the default settings for modal.
 ![gif](./public/cookie.gif)
 
+These are the policy and cookie settings modal.
+![gif](./public/settings_policy.gif)
+
 You can customize the default settings.
 ![gif](./public/cookie-customize.gif)
 
@@ -62,6 +65,13 @@ const cookieContext = {
 	declineButtonText: "DeclineText",
 	declineButtonColor: "white",
 	declineButtonBGC: "green",
+	cookieSettingsTitle: "Title Here",
+	cookieSettings_1: "Setting1",
+	cookieSettings_2: "Setting2",
+	cookieSettings_3: "Setting3",
+	cookieSettings_4: "Setting4",
+	cookiePolicyTitle: "Çerez Politikası",
+	cookiePolicyText: "Biz, Şirket Adı, olarak güvenliğinize önem veriyor ve bu Çerez Politikası ile siz sevgili ziyaretçilerimizi, web sitemizde hangi çerezleri, hangi amaçla kullandığımız ve çerez ayarlarınızı nasıl değiştireceğiniz konularında kısaca bilgilendirmeyi hedefliyoruz. ",
 }
 ```
 
@@ -92,4 +102,11 @@ const cookieContext = {
 | declineButtonText      | string  | You can customize the decline button text.             | "Reddet"                    |
 | declineButtonColor     | string  | You can customize the decline button text color.       | "white"                     |
 | declineButtonBGC       | string  | You can customize the decline button background color. | "rgb(255,128,0)"            |
+| cookieSettingsTitle    | string  | You can customize the cookie settings title text. 			| "Çerez Ayarları"            |
+| cookieSettings_1       | string  | You can customize the cookie settings1 text. 					| "Zorunlu Çerezler"          |
+| cookieSettings_2       | string  | You can customize the cookie settings2 text. 					| "Performans Çerezleri"      |
+| cookieSettings_3       | string  | You can customize the cookie settings3 text. 					| "Hedefleme Çerezleri"       |
+| cookieSettings_4       | string  | You can customize the cookie settings4 text. 					| "İşlevsellik Çerezleri"     |
+| cookiePolicyTitle      | string  | You can customize the cookie policy title. 						| "Çerez Politikası"     			|
+| cookiePolicyText       | string  | You can customize the cookie policy title text. 				| "Biz, Şirket Adı...."     	|
 

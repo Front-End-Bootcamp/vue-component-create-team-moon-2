@@ -106,7 +106,7 @@ const props = defineProps({
 	},
 	cookieSettings_4: {
 		type: String,
-		default: "İşevsellik Çerezleri",
+		default: "İşlevsellik Çerezleri",
 	},
 	cookiePolicyTitle: {
 		type: String,
@@ -114,10 +114,10 @@ const props = defineProps({
 	},
 	cookiePolicyText: {
 		type: String,
-		default: "İçerik",
+		default: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit molestias dignissimos rem quod repellat ea at qui atque illo.",
 	},
 });
-
+length
 onMounted(() => {
 	const cookieData = getLocalCookie() || false;
 	cookie.value = cookieData;
