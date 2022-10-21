@@ -1,27 +1,25 @@
 <script setup>
 import { ref } from "vue";
-const props = defineProps(['isOpen']);
+const props = defineProps(['isOpen','title','setting1','setting2','setting3','setting4']);
 const emits = defineEmits(["closeModal"]);
 
 const isModalOpen = ref(false);
 
-const closeModal = () =>{
+const closeModal = () => {
 	emits("closeModal", isModalOpen)
 };
-
-
 </script>
 
 <template>
-	<div class="modal">
+	<div class="settings">
 		<button class="close-modal" @click="closeModal">&times;</button>
-		<h1 class="modal--title">Çerez Ayarları</h1>
+		<h1 class="modal--title">{{props.title}}</h1>
 
 		<table class="cookie--table">
 			<tr>
 				<td>
-                    <p>Zorunlu çerezler</p>
-                </td>
+					<p class="cookie__settings">{{setting1}}</p>
+				</td>
 				<td>
 					<label class="switch">
 						<input type="checkbox" checked />
@@ -31,8 +29,8 @@ const closeModal = () =>{
 			</tr>
 			<tr>
 				<td>
-                    <p>Performans Çerezleri</p>
-                </td>
+					<p class="cookie__settings">{{setting2}}</p>
+				</td>
 				<td>
 					<label class="switch">
 						<input type="checkbox" />
@@ -42,8 +40,8 @@ const closeModal = () =>{
 			</tr>
 			<tr>
 				<td>
-                    <p>Hedefleme Çerezleri</p>
-                </td>
+					<p class="cookie__settings">{{setting3}}</p>
+				</td>
 				<td>
 					<label class="switch">
 						<input type="checkbox" />
@@ -53,8 +51,8 @@ const closeModal = () =>{
 			</tr>
 			<tr>
 				<td>
-                    <p>İşlevsellik Çerezleri</p>
-                </td>
+					<p class="cookie__settings">{{setting4}}</p>
+				</td>
 				<td>
 					<label class="switch">
 						<input type="checkbox" />
@@ -67,32 +65,27 @@ const closeModal = () =>{
 </template>
 
 <style scoped>
-.modal {
+.settings {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 35%;
-
 	background-color: white;
 	padding: 2rem;
 	border-radius: 7px;
 	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
 	z-index: 10;
 }
-.modal--title{
-    text-align: center;
+
+.modal--title {
+	text-align: center;
 }
 
 .close-modal {
-	position: absolute;
-	top: -1.8rem;
-	right: 1rem;
-	font-size: 4rem;
-	color: #333;
-	cursor: pointer;
-	border: none;
-	background: none;
+	@apply flex items-center justify-center absolute top-0 right-0 text-[36px] bg-slate-200 rounded-tr-lg rounded-bl-lg w-8;
+	@apply hover:bg-slate-400;
+
 }
 
 h1 {
@@ -104,8 +97,8 @@ p {
 	font-size: 1.8rem;
 }
 
-.cookie--table{
-    width :100%;
+.cookie--table {
+	width: 100%;
 }
 
 .switch {
@@ -145,15 +138,15 @@ p {
 	transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
 	background-color: green;
 }
 
-input:focus + .slider {
+input:focus+.slider {
 	box-shadow: 0 0 1px green;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
 	transform: translateX(26px);

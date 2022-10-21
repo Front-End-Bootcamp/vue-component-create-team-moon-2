@@ -18,8 +18,11 @@ const cookieContext = {
 	// declineButtonText: "DeclineText",
 	// declineButtonColor: "white",
 	// declineButtonBGC: "green",
-}
-
+	cookieSettingsTitle: "Title Here",
+	cookieSettings_1: "Setting1",
+	cookieSettings_2: "Setting2",
+	cookieSettings_3: "Setting3",
+	cookieSettings_4: "Setting4",
 	// acceptButton:{
 	//    //text:"Kabul Et",
 	//    //textColor: "white",
@@ -31,7 +34,7 @@ const cookieContext = {
 	//     bgColor: "coral",
 	//     bgHover: ""
 	// }
-
+	}
 
 
 </script>

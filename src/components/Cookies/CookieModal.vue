@@ -86,6 +86,26 @@ const props = defineProps({
 	// 		default: "rgb(255 96 0 / var(--tw-bg-opacity))"
 	// 	}
 	// }
+	cookieSettingsTitle:{
+		type: String,
+		default: "Çerez Ayarları",
+	},
+	cookieSettings_1:{
+		type: String,
+		default: "Zorunlu Çerezler",
+	},
+	cookieSettings_2:{
+		type: String,
+		default: "Performans Çerezleri",
+	},
+	cookieSettings_3:{
+		type: String,
+		default: "Hedefleme Çerezleri",
+	},
+	cookieSettings_4:{
+		type: String,
+		default: "İşevsellik Çerezleri",
+	},
 });
 
 onMounted(() => {
@@ -117,7 +137,17 @@ function closeModalHandler(isClosed){
 
 <template>
 	<div v-if="isOpen">
-		<CookieSettings :isOpen="isOpen" @closeModal="closeModalHandler"></CookieSettings>
+		<CookieSettings 
+		:isOpen="isOpen" 
+		@closeModal="closeModalHandler" 
+		:title="props.cookieSettingsTitle"
+		:setting1="props.cookieSettings_1"
+		:setting2="props.cookieSettings_2"
+		:setting3="props.cookieSettings_3"
+		:setting4="props.cookieSettings_4"
+		
+		>
+	</CookieSettings>
 	</div>
 	<template v-if="!cookie">
 		<div class="cookie" :style="{ backgroundColor: props.cookieModalBGC }">
