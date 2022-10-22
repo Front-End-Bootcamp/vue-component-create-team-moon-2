@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue";
-const props = defineProps(['isSettingsOpen','title','setting1','setting2','setting3','setting4']);
+const props = defineProps(['isSettingsOpen', 'title', 'setting1', 'setting2', 'setting3', 'setting4','isFirstRequired']);
 const emits = defineEmits(["closeModal"]);
 
 const isModalOpen = ref(false);
-
+// const isFirstRequired = true;
 const closeModal = () => {
 	emits("closeModal", isModalOpen)
 };
@@ -22,7 +22,7 @@ const closeModal = () => {
 				</td>
 				<td>
 					<label class="switch">
-						<input type="checkbox" checked />
+						<input type="checkbox" checked :disabled="props.isFirstRequired"/>
 						<span class="slider round"></span>
 					</label>
 				</td>
@@ -66,20 +66,14 @@ const closeModal = () => {
 
 <style scoped>
 .settings {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	@apply absolute top-[50%] left-[50%] w-[35%] min-w-[300px] bg-white p-4 rounded-[7px] z-10;
 	transform: translate(-50%, -50%);
-	width: 35%;
-	background-color: white;
-	padding: 2rem;
-	border-radius: 7px;
 	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-	z-index: 10;
+
 }
 
 .modal--title {
-	text-align: center;
+	@apply text-center;
 }
 
 .close-modal {
@@ -88,7 +82,7 @@ const closeModal = () => {
 
 }
 
-h1 {
+.modal--title {
 	font-size: 2.5rem;
 	margin-bottom: 2rem;
 }

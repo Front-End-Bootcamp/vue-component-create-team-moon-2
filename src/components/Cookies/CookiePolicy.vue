@@ -19,42 +19,21 @@ const closeModalPolicy = () => {
 
 <style lang="scss" scoped>
 .policy {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	@apply absolute top-[50%] left-[50%] w-[35%] min-w-[350px] bg-white p-[2rem] rounded-[7px] z-10;
 	transform: translate(-50%, -50%);
-	width: 35%;
-	background-color: white;
-	padding: 2rem;
-	border-radius: 7px;
 	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-	z-index: 10;
 
 	&--title {
-		text-align: center;
-		font-size: 2rem;
-		margin-bottom: 2rem;
+		@apply text-center text-2xl mb-3;
 	}
 	&--text {
-		font-size: 1rem;
+		@apply text-xl;
 	}
 }
-
-// .modal--title {
-// 	text-align: center;
-// }
-
 .close-modal {
 	@apply flex items-center justify-center absolute top-0 right-0 text-[36px] bg-slate-200 rounded-tr-lg rounded-bl-lg w-8;
 	@apply hover:bg-slate-400;
 }
 
-// h1 {
-// 	font-size: 2.5rem;
-// 	margin-bottom: 2rem;
-// }
 
-// p {
-// 	font-size: 1.8rem;
-// }
 </style>

@@ -18,12 +18,14 @@ const data = [
 	"Rize",
 	"Adıyaman",
 	"Trabzon",
+	"Tolga",
+	"Cookie"
 ];
 
 const searchData = computed(() => {
 	filteredData.value = data.filter((dataItem) => {
 		dataItem = dataItem.toLowerCase();
-		return dataItem.startsWith(searchInput.value.toLowerCase());
+		return dataItem.includes(searchInput.value.toLowerCase());
 	});
 });
 

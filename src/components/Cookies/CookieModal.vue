@@ -1,8 +1,10 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getLocalCookie, saveLocalCookie } from "../../service/local";
+
 import CookieSettings from "./CookieSettings.vue";
 import CookiePolicy from "./CookiePolicy.vue";
+
 const cookie = ref(null);
 const isSettingsOpen = ref(false);
 const isPolicyOpen = ref(false);
@@ -92,6 +94,10 @@ const props = defineProps({
 		type: String,
 		default: "Çerez Ayarları",
 	},
+	isFirstRequired:{
+		type: Boolean,
+		default: true,
+	},
 	cookieSettings_1: {
 		type: String,
 		default: "Zorunlu Çerezler",
@@ -114,10 +120,11 @@ const props = defineProps({
 	},
 	cookiePolicyText: {
 		type: String,
-		default: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit molestias dignissimos rem quod repellat ea at qui atque illo.",
+		default: `Biz, Şirket Adı, olarak güvenliğinize önem veriyor ve bu Çerez Politikası ile siz sevgili ziyaretçilerimizi, web sitemizde hangi çerezleri, 
+		hangi amaçla kullandığımız ve çerez ayarlarınızı nasıl değiştireceğiniz konularında kısaca bilgilendirmeyi hedefliyoruz.`,
 	},
 });
-length
+
 onMounted(() => {
 	const cookieData = getLocalCookie() || false;
 	cookie.value = cookieData;
@@ -156,6 +163,7 @@ function closeModalPolicyHandler(isClosed) {
 		<CookieSettings
 			:isSettingsOpen="isSettingsOpen"
 			@closeModal="closeModalHandler"
+			:isFirstRequired="isFirstRequired"
 			:title="props.cookieSettingsTitle"
 			:setting1="props.cookieSettings_1"
 			:setting2="props.cookieSettings_2"
